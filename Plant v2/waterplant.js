@@ -13,19 +13,19 @@ function waterPlant() {
 
 // Opgave 1: Grundlæggende async/await
 async function basicWatering() {
+  console.log("Opgave 1: Grundlæggende async/await");
   try {
     const result = await waterPlant();
     console.log(result);
   } catch (error) {
     console.error(error);
   }
+  console.log("Opgave 1 afsluttet.\n");
 }
-
-console.log("Opgave 1: Grundlæggende async/await");
-basicWatering();
 
 // Opgave 2: Sekventiel vanding af flere planter
 async function waterMultiplePlants(numberOfPlants) {
+  console.log("Opgave 2: Sekventiel vanding af flere planter");
   console.log(`Starter vanding af ${numberOfPlants} planter...`);
 
   for (let i = 0; i < numberOfPlants; i++) {
@@ -38,20 +38,17 @@ async function waterMultiplePlants(numberOfPlants) {
   }
 
   console.log("Færdig med at vande alle planter.");
+  console.log("Opgave 2 afsluttet.\n");
 }
 
-console.log("\nOpgave 2: Sekventiel vanding af flere planter");
-waterMultiplePlants(3);
-
-// Opgave 3: Parallel vanding med Promise.all (opdateret, mere pædagogisk version)
+// Opgave 3: Parallel vanding med Promise.all
 async function waterPlantsInParallel(numberOfPlants) {
+  console.log("Opgave 3: Parallel vanding med Promise.all");
   console.log(`Starter parallel vanding af ${numberOfPlants} planter...`);
 
-  // Trin 1: Opret et tomt array med det ønskede antal elementer
   const plantArray = Array(numberOfPlants).fill(null);
   console.log("Tomt plantearray oprettet:", plantArray);
 
-  // Trin 2: Brug map() til at erstatte null-værdierne med vandingsløfter
   const wateringPromises = plantArray.map((_, index) => {
     console.log(`Opretter vandingsløfte for plante ${index + 1}`);
     return waterPlant()
@@ -60,31 +57,24 @@ async function waterPlantsInParallel(numberOfPlants) {
   });
   console.log("Array af vandingsløfter oprettet");
 
-  // Trin 3: Brug Promise.all til at vente på alle løfter
   console.log("Venter på at alle planter bliver vandet...");
   const results = await Promise.all(wateringPromises);
 
-  // Trin 4: Vis resultaterne
   console.log("Resultater af parallel vanding:");
   results.forEach(result => console.log(result));
 
   console.log("Færdig med parallel vanding.");
+  console.log("Opgave 3 afsluttet.\n");
 }
-
-console.log("\nOpgave 3: Parallel vanding med Promise.all (opdateret version)");
-waterPlantsInParallel(3);
-
-
-console.log("\nOpgave 3: Parallel vanding med Promise.all");
-waterPlantsInParallel(3);
 
 // Opgave 4: Fejlhåndtering og gentagelse
 async function waterPlantWithRetry(maxAttempts) {
+  console.log("Opgave 4: Fejlhåndtering og gentagelse");
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
       const result = await waterPlant();
       console.log(`Forsøg ${attempt}: ${result}`);
-      return; // Succes, afslut funktionen
+      break; // Succes, afslut løkken
     } catch (error) {
       console.error(`Forsøg ${attempt}: ${error}`);
       if (attempt === maxAttempts) {
@@ -92,10 +82,8 @@ async function waterPlantWithRetry(maxAttempts) {
       }
     }
   }
+  console.log("Opgave 4 afsluttet.\n");
 }
-
-console.log("\nOpgave 4: Fejlhåndtering og gentagelse");
-waterPlantWithRetry(3);
 
 // Opgave 5: Async/await med timeout
 function timeout(ms) {
@@ -103,6 +91,7 @@ function timeout(ms) {
 }
 
 async function waterPlantWithTimeout(timeoutMs) {
+  console.log("Opgave 5: Async/await med timeout");
   try {
     const result = await Promise.race([waterPlant(), timeout(timeoutMs)]);
     console.log(result);
@@ -113,7 +102,18 @@ async function waterPlantWithTimeout(timeoutMs) {
       console.error(error);
     }
   }
+  console.log("Opgave 5 afsluttet.\n");
 }
 
-console.log("\nOpgave 5: Async/await med timeout");
-waterPlantWithTimeout(1500);
+// Hovedfunktion til at køre alle opgaver sekventielt
+async function runAllExercises() {
+  await basicWatering();
+  await waterMultiplePlants(3);
+  await waterPlantsInParallel(3);
+  await waterPlantWithRetry(3);
+  await waterPlantWithTimeout(1500);
+  console.log("Alle opgaver er gennemført!");
+}
+
+// Start programmet
+runAllExercises();
