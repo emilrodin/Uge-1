@@ -1,5 +1,3 @@
-let responseDom = document.getElementById("response")
-
 async function getCustomers() {
   try {
     const response = await fetch('http://localhost:3000/customers');

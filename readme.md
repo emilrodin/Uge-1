@@ -2,7 +2,7 @@
 
 I 'old assignments' ligger de opgaver, som der tidligere er blevet lavet. Dette er repetition.
 
-I 'client' findes den klient, der skal udvides og bruges til at løse Express Server Opgaver.
+I 'client' findes den klient, der skal udvides og bruges til at løse client Opgaver.
 
 I 'server' findes serveren, der skal udvides og bruges til at løse Express Server Opgaver.
 
@@ -33,7 +33,7 @@ Her skal du fokusere på at oprette og administrere en Express-server. Følgende
 ### Opgave 6: Implementer en simpel 404-middleware
 - Tilføj en middleware, der returnerer en 404-fejl og en brugerdefineret besked, hvis en route ikke findes.
 
-**TIP:** Husk at konfigurere CORS og bruge JSON middleware.
+**TIP:** Husk at bruge CORS og JSON middleware.
 
 ---
 
@@ -51,13 +51,16 @@ Her laves to tidligere opgaver, der er set før. De ligger i 'old assignments', 
 
 # Uge 2
 
+Hvis uge 1 er lavet kan disse opgaver laves i vilkårlig rækkefølge.
+
 ## Async/Await
+
 ### Opgave 1: Lav blomster opgave v2 
 - Lav den udvidede blomsteropgave.
 
 ## Express Server Opgaver
 
-Her udvider vi din Express-server med funktionalitet til at håndtere kundedata. Følgende opgaver omfatter CRUD-operationer og filhåndtering:
+Her udvides Express-serveren med funktionalitet til at håndtere kundedata. Følgende opgaver omfatter CRUD-operationer og filhåndtering:
 
 ### Opgave 1: Opsætning af Express Router
 - Opret en ny router ved hjælp af `express.Router()` til at håndtere kunde-relaterede routes.
@@ -73,10 +76,10 @@ Her udvider vi din Express-server med funktionalitet til at håndtere kundedata.
 ### Opgave 4: Tilføj et POST-endpoint til at oprette en ny kunde
 - Opret et nyt endpoint, der accepterer JSON-data fra klienten for at tilføje en ny kunde til `customers.json`.
 
-## Client opgaver (fetch)
+## Client opgaver (fetch) 
 
 ### Opgave 1: Kald serveren (Brug den press me knappen)
 - Lav et fetch fra klienten, der gør brug af et af de GET-endpoints, du har lavet, og log resultatet. 
 
 ### Opgave 2: Opret en kunde (Gør brug af den allerede lavet form)
-- Lav et fetch fra klienten, der gør brug af det POST-endpoint, du har lavet, for at oprette en ny kunde.
+- Lav et fetch fra klienten, der gør brug af de POST-endpoint, du har lavet, og log resultatet.
