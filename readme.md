@@ -56,7 +56,9 @@ Hvis uge 1 er lavet kan disse opgaver laves i vilkårlig rækkefølge.
 ## Async/Await
 
 ### Opgave 1: Lav blomster opgave v2 
-- Lav den udvidede blomsteropgave.
+- Lav den udvidede blomsteropgave. Gør brug af google eller chatten, til at forstå de forskellige funktioner. 
+- En god prompt kunne være:  "Løs opgaven: 'Brug `Array(numberOfPlants)` til at oprette et array med den ønskede længde.' Forklar hvad `Array(numberOfPlants)` gør, og eksempler på outputtet af koden". 
+- Brug kun chatten til hjælp med del elementer, men lav opgaven selv. 
 
 ## Express Server Opgaver
 
@@ -79,7 +81,7 @@ Her udvides Express-serveren med funktionalitet til at håndtere kundedata. Føl
 ## Client opgaver (fetch) 
 
 ### Opgave 1: Kald serveren (Brug den press me knappen)
-- Lav et fetch fra klienten, der gør brug af et af de GET-endpoints, du har lavet, og log resultatet. 
+- Lav et fetch fra klienten, der gør brug af et af de GET-endpoints, du har lavet, og log resultatet. Evt. brug try/catch
 
 ### Opgave 2: Opret en kunde (Gør brug af den allerede lavet form)
-- Lav et fetch fra klienten, der gør brug af de POST-endpoint, du har lavet, og log resultatet.
+- Lav et fetch fra klienten, der gør brug af de POST-endpoint, du har lavet, og log resultatet. Evt. brug try/catch
