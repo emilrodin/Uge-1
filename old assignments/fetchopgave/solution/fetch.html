@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Fetcher</title>
+</head>
+<body>
+  <button id="fetchButton">Hent data</button>
+  <p id="dataOutput"></p>
+
+  <script>
+    async function fetchDataFromDanmarksStatistik(apiEndpoint) {
+      const apiUrl = `https://api.statbank.dk/${apiEndpoint}`;
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log(data);
+        return data;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    document.getElementById('fetchButton').addEventListener('click', async () => {
+      const data = await fetchDataFromDanmarksStatistik('v1/data/FOLK1A/JSONSTAT?timeOrder=Descending');
+      if (data && data.value) {
+        document.getElementById('dataOutput').textContent = JSON.stringify(data.value, null, 2);
+      }
+    });
+  </script>
+</body>
+</html>

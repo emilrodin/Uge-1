@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Fetcher</title>
+</head>
+
+<body>
+    <button id="fetchButton">Hent data</button>
+    <p id="dataOutput"></p>
+
+    <script>
+        async function fetchDataFromDanmarksStatistik(apiEndpoint) {
+            const apiUrl = `https://api.statbank.dk/${apiEndpoint}`;
+            
+        }
+
+        document.getElementById('fetchButton').addEventListener('click', async () => {
+            fetchDataFromDanmarksStatistik('v1/data/FOLK1A/JSONSTAT?timeOrder=Descending')
+                .then(data => {
+                    // Håndter data
+                });
+        });
+    </script>
+</body>
+
+</html>

@@ -12,14 +12,20 @@
     <ul>
         <li><img src="../img/joeLogo.svg" alt="Logo"></li>
         <li><a href="home.html" class="active">Home</a></li>
-        <li style="float:right" ><a href="https://www.joejuice.com/stores?storeType=true&market=dk">Locations</a></li>
-        <li style="float:right" ><a href="https://www.joejuice.com/culture">Culture</a></li>
-        <li style="float:right" ><a href="https://www.joejuice.com/store/5f871bf1-b0d1-4e2a-ac84-31047281cde9">Menu</a></li>
-      </ul>
-        <div class="center">
-          <button onclick="getResponse()">Press me</button>
-          <p id="response"></p>
-        </div>
+        <li style="float:right"><a href="https://www.joejuice.com/stores?storeType=true&market=dk">Locations</a></li>
+        <li style="float:right"><a href="https://www.joejuice.com/culture">Culture</a></li>
+        <li style="float:right"><a href="https://www.joejuice.com/store/5f871bf1-b0d1-4e2a-ac84-31047281cde9">Menu</a></li>
+    </ul>
+    <div class="center">
+        <button onclick="getCustomers()">Press me</button>
+        <div id="customerList"></div>
+
+        <h3>Opret Ny Kunde</h3>
+        <input type="text" id="customerName" placeholder="Kundenavn">
+        <input type="email" id="customerEmail" placeholder="Email">
+        <button onclick="createCustomer()">Opret Kunde</button>
+        <p id="createResult"></p>
+    </div>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
