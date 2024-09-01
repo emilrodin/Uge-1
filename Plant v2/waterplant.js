@@ -78,7 +78,7 @@ async function waterPlantWithRetry(maxAttempts) {
     } catch (error) {
       console.error(`Forsøg ${attempt}: ${error}`);
       if (attempt === maxAttempts) {
-        console.error("Maksimalt antal forsøg nået. Opgiver vanding.");
+        console.error("Maksimalt antal forsøg nået.");
       }
     }
   }
@@ -111,7 +111,7 @@ async function runAllExercises() {
   await waterMultiplePlants(3);
   await waterPlantsInParallel(3);
   await waterPlantWithRetry(3);
-  await waterPlantWithTimeout(1500);
+  await waterPlantWithTimeout(500);
   console.log("Alle opgaver er gennemført!");
 }
 
