@@ -6,7 +6,7 @@ const port = 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(customerRoutes)
+app.use("/customer", customerRoute);
 
 // Middleware til at logge requests
 app.use((req, res, next) => {
