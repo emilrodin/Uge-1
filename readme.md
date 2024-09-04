@@ -13,10 +13,11 @@ I 'plant v2' ligger opgaven til 'Lav blomster opgave v2'.
 
 ## Express Server Opgaver 
 
-Her skal du fokusere på at oprette og administrere en Express-server. Følgende opgaver skal hjælpe dig med at opbygge og forstå en simpel server:
+Her skal du fokusere på at oprette og administrere en Express-server. Husk at køre npm install i server mappen. Se documentation for hjælp: [Express](https://expressjs.com/en/starter/hello-world.html)
+
 
 ### Opgave 1: Sæt en server op
-- Installer Express og sæt en grundlæggende server op, der kører på en given port.
+- Sæt en grundlæggende server op, der kører på en given port.
 
 ### Opgave 2: Sæt et "Hello World" endpoint op `/`
 - Opret en route, der returnerer "Hello World" på roden af serveren.
@@ -28,12 +29,12 @@ Her skal du fokusere på at oprette og administrere en Express-server. Følgende
 - Opret et endpoint, der modtager JSON-data fra en klient og returnerer de samme data tilbage.
 
 ### Opgave 5: Opret en middleware, der logger requests
-- Tilføj en simpel middleware, der logger hver request's metode og URL til konsollen.
+- Tilføj en simpel middleware, der logger hver request's metode og URL til konsollen. [Middleware](https://expressjs.com/en/guide/using-middleware.html)
 
 ### Opgave 6: Implementer en simpel 404-middleware
 - Tilføj en middleware, der returnerer en 404-fejl og en brugerdefineret besked, hvis en route ikke findes.
 
-**TIP:** Husk at bruge CORS og JSON middleware.
+**TIP:** Husk at bruge CORS og JSON middleware. [CORS](https://www.npmjs.com/package/cors?activeTab=readme) [JSON](https://expressjs.com/en/5x/api.html#express.json)
 
 ---
 
@@ -65,10 +66,10 @@ Hvis uge 1 er lavet kan disse opgaver laves i vilkårlig rækkefølge.
 Her udvides Express-serveren med funktionalitet til at håndtere kundedata. Følgende opgaver omfatter CRUD-operationer og filhåndtering:
 
 ### Opgave 1: Opsætning af Express Router
-- Opret en ny router ved hjælp af `express.Router()` til at håndtere kunde-relaterede routes.
+- Opret en ny router ved hjælp af `express.Router()` til at håndtere kunde-relaterede routes. 
 
 ### Opgave 2: Filhåndtering af kundedata
-- Brug `fs.readFileSync` og `fs.writeFileSync` til at læse fra og skrive til en JSON-fil (`customers.json`) for at simulere en simpel database.
+- Brug `fs.readFileSync` og `fs.writeFileSync` til at læse fra og skrive til en JSON-fil (`customers.json`) for at simulere en simpel database. [fs](https://www.w3schools.com/nodejs/nodejs_filesystem.asp)
 
 ### Opgave 3: Implementer CRUD-operationer
 - Opret følgende endpoints for kunder:
@@ -76,9 +77,11 @@ Her udvides Express-serveren med funktionalitet til at håndtere kundedata. Føl
   - **DELETE `/delete/:id`**: Slet en kunde baseret på deres ID fra JSON-filen og gem de opdaterede data.
 
 ### Opgave 4: Tilføj et POST-endpoint til at oprette en ny kunde
-- Opret et nyt endpoint, der accepterer JSON-data fra klienten for at tilføje en ny kunde til `customers.json`.
+- Opret et nyt endpoint, der accepterer JSON-data fra klienten for at tilføje en ny kunde til `customers.json`. I bestemmer selv hvordan i vil lave unikke id'er
 
 ## Client opgaver (fetch) 
+
+Her laves der fetch kald fra klienten til serveren, Axios er hentet ned på klienten, så i skal være velkommen til at bruge det som fetch metode: [Axios](https://axios-http.com/docs/intro)
 
 ### Opgave 1: Kald serveren (Brug den press me knappen)
 - Lav et fetch fra klienten, der gør brug af et af de GET-endpoints, du har lavet, og log resultatet. Evt. brug try/catch
