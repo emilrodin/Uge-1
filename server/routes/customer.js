@@ -30,9 +30,9 @@ customerRoutes.delete("/delete/:id", (req, res) => {
   if (customers[customerId]) {
     delete customers[customerId];
     saveCustomers(customers);
-    res.send(`Kunde med id ${customerId} er blevet slettet.`);
+    res.json({ message: `Kunde med id ${customerId} er blevet slettet.` });
   } else {
-    res.status(404).send(`Kunde med id ${customerId} blev ikke fundet.`);
+    res.status(404).json({ error: `Kunde med id ${customerId} blev ikke fundet.` });
   }
 });
 
@@ -46,7 +46,7 @@ customerRoutes.post("/add", (req, res) => {
   customers[newId] = newCustomer;
 
   saveCustomers(customers);
-  res.send(`Kunde med id ${newId} er blevet oprettet.`);
+  res.json({ message: `Kunde med id ${newId} er blevet oprettet.`, customerId: newId });
 });
 
 module.exports = customerRoutes;
