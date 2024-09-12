@@ -6,7 +6,7 @@ const customerDB = "./db/customer.json";
 
 // Funktion til at gemme kunder i JSON-filen
 const saveCustomers = (data) => {
-  const stringifyData = JSON.stringify(data, null, 2); 
+  const stringifyData = JSON.stringify(data, null, 2); // Formater JSON-data
   fs.writeFileSync(customerDB, stringifyData);
 };
 
@@ -18,17 +18,35 @@ const getCustomers = () => {
 
 // Hent alle kunder
 customerRoutes.get("/", (req, res) => {
-
+  const customers = getCustomers();
+  res.send(customers);
 });
 
 // Slet en kunde baseret på ID
 customerRoutes.delete("/delete/:id", (req, res) => {
+  let customers = getCustomers();
+  const customerId = req.params["id"];
 
+  if (customers[customerId]) {
+    delete customers[customerId];
+    saveCustomers(customers);
+    res.json({ message: `Kunde med id ${customerId} er blevet slettet.` });
+  } else {
+    res.status(404).json({ error: `Kunde med id ${customerId} blev ikke fundet.` });
+  }
 });
 
 // Opret en ny kunde
 customerRoutes.post("/add", (req, res) => {
+  const customers = getCustomers();
+  const newCustomer = req.body;
 
+  // Simuler auto-generering af ID
+  const newId = Date.now().toString();
+  customers[newId] = newCustomer;
+
+  saveCustomers(customers);
+  res.json({ message: `Kunde med id ${newId} er blevet oprettet.`, customerId: newId });
 });
 
 module.exports = customerRoutes;
