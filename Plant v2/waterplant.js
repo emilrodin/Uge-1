@@ -14,20 +14,40 @@ function waterPlant() {
 // Opgave 1: Grundlæggende async/await
 async function basicWatering() {
   console.log("Opgave 1: Grundlæggende async/await");
-
+  try {
+    let watering = await waterPlant();
+    console.log(watering);
+  } catch (error) {
+    console.log();
+  }
   console.log("Opgave 1 afsluttet.\n");
 }
 
 // Opgave 2: Sekventiel vanding af flere planter
 async function waterMultiplePlants(numberOfPlants) {
   console.log("Opgave 2: Sekventiel vanding af flere planter");
-
+  for (let i = 0; i < numberOfPlants; i++) {
+    try {
+      let waterone = await waterPlant();
+      console.log(waterone, i);
+    } catch (error) {
+      console.log(error, i);
+    }
+  }
   console.log("Opgave 2 afsluttet.\n");
 }
 
 // Opgave 3: Parallel vanding med Promise.all
 async function waterPlantsInParallel(numberOfPlants) {
   console.log("Opgave 3: Parallel vanding med Promise.all");
+
+  let a = Array(numberOfPlants).fill(null);
+  console.log(a);
+
+  let p = a.map(
+    waterPlant().then(console.log("success")).catch(console.log("fail"))
+  );
+  console.log(p);
 
   console.log("Opgave 3 afsluttet.\n");
 }
@@ -41,7 +61,9 @@ async function waterPlantWithRetry(maxAttempts) {
 
 // Opgave 5: Async/await med timeout
 function timeout(ms) {
-  return new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), ms));
+  return new Promise((_, reject) =>
+    setTimeout(() => reject(new Error("Timeout")), ms)
+  );
 }
 
 async function waterPlantWithTimeout(timeoutMs) {
